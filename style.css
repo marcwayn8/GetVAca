@@ -1,0 +1,174 @@
+@font-face {
+    font-family: 'EntezareZohoor2';
+    src: url('fonts/EntezareZohoor2.eot'), url('fonts/EntezareZohoor2.ttf') format('truetype'), url('fonts/EntezareZohoor2.svg') format('svg');
+    font-weight: normal;
+    font-style:oblique;
+}
+body ::backdrop {
+    margin: 0 0;
+    padding: 0 0;
+    text-align: center;
+    font-size: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+#gradient-rotate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#trianglify-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#color-stop-1 {
+    -webkit-animation: change-color-1 12s ease-in-out infinite alternate;
+    animation: change-color-1 12s ease-in-out infinite alternate
+}
+
+#color-stop-2 {
+    -webkit-animation: change-color-2 12s ease-in-out infinite alternate;
+    animation: change-color-2 12s ease-in-out infinite alternate
+}
+
+#color-stop-3 {
+    -webkit-animation: change-color-3 12s ease-in-out infinite alternate;
+    animation: change-color-3 12s ease-in-out infinite alternate
+}
+
+@keyframes change-color-1 {
+    0% {
+        stop-color: #22C8F6
+    }
+
+    25% {
+        stop-color: #ff0
+    }
+
+    50% {
+        stop-color: #00ffcb
+    }
+
+    75% {
+        stop-color: #70ff00
+    }
+}
+
+@keyframes change-color-2 {
+    0% {
+        stop-color: #20C498
+    }
+
+    25% {
+        stop-color: #ff00ad
+    }
+
+    350% {
+        stop-color: #d480ff
+    }
+
+    75% {
+        stop-color: #ff9200
+    }
+}
+
+@keyframes change-color-3 {
+    0% {
+        stop-color: #189932
+    }
+
+    25% {
+        stop-color: #c300cb
+    }
+
+    50% {
+        stop-color: #5600d4
+    }
+
+    75% {
+        stop-color: #ff46dc
+    }
+}
+
+nav {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+
+}
+#comment-input{
+padding:20px;
+background-color: white;
+}
+#comment-input2{
+    padding:20px;
+    background-color: white;
+
+}
+#formcontainer{
+    display:flex;
+    justify-content: space-evenly;
+}
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+  }
+  /* The container <div> - needed to position the dropup content */
+  .dropup {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropup content (Hidden by Default) */
+  .dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  /* saved words inside the dropup */
+  .dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropup links on hover */
+  .dropup-content a:hover {background-color: #ddd}
+  
+  /* Show the dropup menu on hover */
+  .dropup:hover .dropup-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropup button when the dropup content is shown */
+  .dropup:hover .dropbtn {
+    background-color: pink;
+  }
+  #dropup{
+    position:fixed;
+    left:1px;
+    bottom:2px;
+  }

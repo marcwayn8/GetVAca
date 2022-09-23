@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>WhoYahLova</title>
+</head>
+<body>
+    <svg id="gradient-rotate" preserveAspectRatio="none" viewBox="0 0 500 500">
+        <defs>
+            <linearGradient x1="0%" y1="0%" y2="100%" id="a">
+                <stop id="color-stop-1" stop-color="#22C8F6" offset="0%"></stop>
+                <stop id="color-stop-2" stop-color="#20C498" offset="65%"></stop>
+                <stop id="color-stop-3" stop-color="#189932" offset="100%"></stop>
+            </linearGradient>
+        </defs>
+        <path fill="url(#a)" d="M0 0h500v500H0z"></path>
+    </svg>
+    <nav>
+        <h1 id="header">WhoYahLova</h1>
+        <h1 id="google_translate_element">Translate</h1>
+    </nav>
+    <div id="formcontainer">
+        <form id="comment-form" action="">
+            <input type='text'placeholder="  Name 1" id="comment-input" cols="30" rows="10">
+            </br>
+            <button id='submit'>submit</button>
+        </form>
+    
+        <form id="comment-form2" action="">
+            <input type='text'placeholder="Name 2" id="comment-input2" cols="30" rows="10">
+            </br>
+            <button id='submit2'>submit</button>
+        </form>
+    </div>
+    <center>
+        <h3 id="percent"></h3>
+    </center>
+    <center>
+        <p id="message"></p>
+    </center>
+    <div class="dropup" id="dropup">
+        <button class="dropbtn">Show Previous Names</button>
+        <div class="dropup-content">
+          <div id="menu"></div>
+        </div>
+      </div>
+<img id="love" src="love.gif" alt="">
+
+    <script src="index.js"></script>
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>const pattern = trianglify({
+            height: window.innerHeight,
+            width: window.innerWidth,
+            xColors: ['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 1)'],
+            yColors: 'match',
+            cellSize: Math.ceil(window.innerWidth / 8)
+        })
+        var svg = pattern.toSVG()
+        svg.id = 'trianglify-overlay'
+        document.body.appendChild(svg)</script>
+</body>
+</html>
