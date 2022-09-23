@@ -1,4 +1,4 @@
-//Trianglify animation for background gradient
+//DOM Elements
 const submit = document.getElementById("submit")
 const submit2 = document.getElementById("submit2")
 const percent = document.getElementById("percent")
@@ -7,6 +7,9 @@ const translate = document.getElementById("google_translate_element")
 const newarr = []
 const menu = document.getElementById("menu")
 const loveGif = document.getElementById("love")
+let dropUp = document.getElementById("dropup")
+
+//Styling
 loveGif.style.display = "none"
 
 const options = {
@@ -16,6 +19,8 @@ const options = {
         'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
     }
 };
+
+//Event listeners
 submit.addEventListener('click', function (event) {
     event.stopImmediatePropagation();
     const addComment = document.forms["comment-form"]
@@ -25,6 +30,8 @@ submit.addEventListener('click', function (event) {
     newarr.push(value)
     addComment.querySelector(`input[type="text"]`).value = ""
 
+
+    //Second name form event listener
     submit2.addEventListener('click', function (event) {
         event.stopImmediatePropagation();
         const addComment = document.forms["comment-form2"]
@@ -37,7 +44,7 @@ submit.addEventListener('click', function (event) {
         fetch(`https://love-calculator.p.rapidapi.com/getPercentage?sname=${text}&fname=${value}`, options)
             .then(response => response.json())
             .then(response => {
-                percent.innerHTML = `Percentage Match: ${response.percentage}`;
+                percent.innerHTML = `Percentage Match: ${response.percentage} %`;
                 message.innerHTML = `Compatibility Message: ${response.result}`
                 if (response.percentage > 50) {
                     loveGif.style.display = "block"
@@ -50,7 +57,7 @@ submit.addEventListener('click', function (event) {
 })
 console.log(newarr)
 
-let dropUp = document.getElementById("dropup")
+//translate event listener
 translate.addEventListener("click", () => {
     function first(e) {
         translate.innerHTML = ""
@@ -66,6 +73,7 @@ translate.addEventListener("click", () => {
 
 })
 
+//DropUp event listener
 dropUp.addEventListener("click", () => {
     function fetch20Times() {
         for (let i = 0; i <= newarr.length-1; i++) {
