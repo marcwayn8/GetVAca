@@ -8,9 +8,11 @@ const newarr = []
 const menu = document.getElementById("menu")
 const loveGif = document.getElementById("love")
 let dropUp = document.getElementById("dropup")
-
+let instructButton = document.getElementById("dropup2")
+let instructions=document.getElementById("instruct")
 //Styling
 loveGif.style.display = "none"
+instructions.style.display="none"
 
 const options = {
     method: 'GET',
@@ -44,7 +46,7 @@ submit.addEventListener('click', function (event) {
         fetch(`https://love-calculator.p.rapidapi.com/getPercentage?sname=${text}&fname=${value}`, options)
             .then(response => response.json())
             .then(response => {
-                percent.innerHTML = `Percentage Match: ${response.percentage} %`;
+                percent.innerHTML = `Percentage Match: ${response.percentage}%`;
                 message.innerHTML = `Compatibility Message: ${response.result}`
                 if (response.percentage > 50) {
                     loveGif.style.display = "block"
@@ -79,12 +81,12 @@ dropUp.addEventListener("click", () => {
         for (let i = 0; i <= newarr.length-1; i++) {
             console.log(newarr)
             let name = document.createElement("ul")
-           name.style.backgroundColor="transparent"
+          
             let text=document.createElement("li")
             menu.appendChild(name)
             name.appendChild(text)
             text.innerText = newarr[i]
-            text.style.borderRadius = "70px";
+            text.style.borderRadius = "20px";
             text.style.height = "50px"
           text.style.backgroundColor="pink"
           text.style.alignContent="center"
@@ -93,3 +95,14 @@ dropUp.addEventListener("click", () => {
     fetch20Times()
 
 })
+
+instructButton.addEventListener("click",first)
+    function first(e) {
+       instructions.style.display="block"
+        e.stopImmediatePropagation();
+        instructButton.onclick =
+        setTimeout(()=>{
+            instructions.style.display="none" 
+        },4000)
+    }
+  
