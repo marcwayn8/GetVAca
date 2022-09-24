@@ -3,8 +3,8 @@
 Team:
 
 Product Manager/Developer: Wayne March
-l
-Tech Stack:
+
+Tech Stack: Front-end
 
 Frontend: HTML, CSS, Javascript
 Unit 6: Skills:
