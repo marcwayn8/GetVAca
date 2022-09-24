@@ -4,16 +4,20 @@ const submit2 = document.getElementById("submit2")
 const percent = document.getElementById("percent")
 const message = document.getElementById("message");
 const translate = document.getElementById("google_translate_element")
-const newarr = []
 const menu = document.getElementById("menu")
 const loveGif = document.getElementById("love")
 let dropUp = document.getElementById("dropup")
 let instructButton = document.getElementById("dropup2")
-let instructions=document.getElementById("instruct")
+let instructions = document.getElementById("instruct")
+
+//Array to store Names
+const newarr = []
+
 //Styling
 loveGif.style.display = "none"
-instructions.style.display="none"
+instructions.style.display = "none"
 
+//API key and API Host
 const options = {
     method: 'GET',
     headers: {
@@ -21,26 +25,21 @@ const options = {
         'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
     }
 };
-
 //Event listeners
 submit.addEventListener('click', function (event) {
+    //First Name form event listener
     event.stopImmediatePropagation();
     const addComment = document.forms["comment-form"]
     event.preventDefault()
-    var value = addComment.querySelector(`input[type="text"]`).value
-    console.log(value)
-    newarr.push(value)
+    const value = addComment.querySelector(`input[type="text"]`).value
     addComment.querySelector(`input[type="text"]`).value = ""
-
 
     //Second name form event listener
     submit2.addEventListener('click', function (event) {
         event.stopImmediatePropagation();
         const addComment = document.forms["comment-form2"]
         event.preventDefault()
-        var text = addComment.querySelector(`input[type="text"]`).value
-        console.log(text)
-        newarr.push(text)
+        const text = addComment.querySelector(`input[type="text"]`).value
         addComment.querySelector(`input[type="text"]`).value = ""
 
         fetch(`https://love-calculator.p.rapidapi.com/getPercentage?sname=${text}&fname=${value}`, options)
@@ -57,52 +56,44 @@ submit.addEventListener('click', function (event) {
 
     })
 })
-console.log(newarr)
-
 //translate event listener
-translate.addEventListener("click", () => {
-    function first(e) {
-        translate.innerHTML = ""
-        e.stopImmediatePropagation();
-        translate.onclick = second;
-    }
-    function second(e) {
-        e.stopImmediatePropagation();
-        translate.onclick = first;
-        translate.innerHTML = "Translate"
-
-    }
-
-})
-
+translate.addEventListener("click", first)
+function first(e) {
+    translate.innerHTML = ""
+    e.stopImmediatePropagation();
+    translate.onclick = second;
+}
+function second(e) {
+    e.stopImmediatePropagation();
+    translate.onclick = first;
+    translate.innerHTML = "Translate"
+}
 //DropUp event listener
 dropUp.addEventListener("click", () => {
-    function fetch20Times() {
-        for (let i = 0; i <= newarr.length-1; i++) {
+    function outputNames() {
+        for (let i = 0; i <= newarr.length - 1; i++) {
             console.log(newarr)
             let name = document.createElement("ul")
-          
-            let text=document.createElement("li")
+            let text = document.createElement("li")
             menu.appendChild(name)
             name.appendChild(text)
             text.innerText = newarr[i]
             text.style.borderRadius = "20px";
             text.style.height = "50px"
-          text.style.backgroundColor="pink"
-          text.style.alignContent="center"
+            text.style.backgroundColor = "pink"
+            text.style.alignContent = "center"
         }
     }
-    fetch20Times()
-
+    outputNames()
 })
 
-instructButton.addEventListener("click",first)
-    function first(e) {
-       instructions.style.display="block"
-        e.stopImmediatePropagation();
-        instructButton.onclick =
-        setTimeout(()=>{
-            instructions.style.display="none" 
-        },4000)
-    }
-  
+instructButton.addEventListener("click", first)
+function first(e) {
+    instructions.style.display = "block"
+    e.stopImmediatePropagation();
+    instructButton.onclick =
+        setTimeout(() => {
+            instructions.style.display = "none"
+        }, 5000)
+}
+
