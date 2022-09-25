@@ -100,7 +100,6 @@ body::backdrop {
 }
 
 nav {
-    z-index: 1;
     display: flex;
     justify-content: space-between;
 
@@ -120,7 +119,9 @@ nav {
 #formcontainer {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
 
 .dropbtn {
     background-color: #3498DB;

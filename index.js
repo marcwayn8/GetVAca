@@ -27,11 +27,12 @@ const options = {
 };
 //Event listeners
 submit.addEventListener('click', function (event) {
-    //First Name form event listener
     event.stopImmediatePropagation();
     const addComment = document.forms["comment-form"]
     event.preventDefault()
-    const value = addComment.querySelector(`input[type="text"]`).value
+    var value = addComment.querySelector(`input[type="text"]`).value
+    console.log(value)
+    newarr.push(value)
     addComment.querySelector(`input[type="text"]`).value = ""
 
     //Second name form event listener
@@ -39,9 +40,10 @@ submit.addEventListener('click', function (event) {
         event.stopImmediatePropagation();
         const addComment = document.forms["comment-form2"]
         event.preventDefault()
-        const text = addComment.querySelector(`input[type="text"]`).value
+        var text = addComment.querySelector(`input[type="text"]`).value
+        console.log(text)
+        newarr.push(text)
         addComment.querySelector(`input[type="text"]`).value = ""
-
         fetch(`https://love-calculator.p.rapidapi.com/getPercentage?sname=${text}&fname=${value}`, options)
             .then(response => response.json())
             .then(response => {
@@ -53,20 +55,22 @@ submit.addEventListener('click', function (event) {
                 else { loveGif.style.display = "none" }
             })
             .catch(err => console.error(err));
-
     })
 })
+
+
 //translate event listener
 translate.addEventListener("click", first)
 function first(e) {
-    translate.innerHTML = ""
+    translate.style.color="pink"
     e.stopImmediatePropagation();
     translate.onclick = second;
 }
 function second(e) {
     e.stopImmediatePropagation();
     translate.onclick = first;
-    translate.innerHTML = "Translate"
+    translate.style.color="black"
+   
 }
 //DropUp event listener
 dropUp.addEventListener("click", () => {
@@ -87,8 +91,8 @@ dropUp.addEventListener("click", () => {
     outputNames()
 })
 
-instructButton.addEventListener("click", first)
-function first(e) {
+instructButton.addEventListener("click", last)
+function last(e) {
     instructions.style.display = "block"
     e.stopImmediatePropagation();
     instructButton.onclick =
