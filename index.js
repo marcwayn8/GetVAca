@@ -87,8 +87,8 @@ dropUp.addEventListener("click", () => {
     outputNames()
 })
 
-instructButton.addEventListener("click", first)
-function first(e) {
+instructButton.addEventListener("click", firsts)
+function firsts(e) {
     instructions.style.display = "block"
     e.stopImmediatePropagation();
     instructButton.onclick =
