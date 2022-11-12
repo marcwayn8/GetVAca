@@ -100,4 +100,3 @@ function last(e) {
             instructions.style.display = "none"
         }, 5000)
 }
-
