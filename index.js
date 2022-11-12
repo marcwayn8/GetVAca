@@ -57,17 +57,17 @@ submit.addEventListener('click', function (event) {
     })
 })
 //translate event listener
-translate.addEventListener("click", first)
-function first(e) {
-    translate.innerHTML = ""
-    e.stopImmediatePropagation();
-    translate.onclick = second;
-}
-function second(e) {
-    e.stopImmediatePropagation();
-    translate.onclick = first;
-    translate.innerHTML = "Translate"
-}
+// translate.addEventListener("click", first)
+// function first(e) {
+//     translate.innerHTML = ""
+//     e.stopImmediatePropagation();
+//     translate.onclick = second;
+// }
+// function second(e) {
+//     e.stopImmediatePropagation();
+//     translate.onclick = first;
+//     translate.innerHTML = "Translate"
+// }
 //DropUp event listener
 dropUp.addEventListener("click", () => {
     function outputNames() {
